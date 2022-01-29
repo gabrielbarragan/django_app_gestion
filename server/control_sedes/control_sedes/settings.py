@@ -43,7 +43,14 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'djoser',
 
+    #utilities
+    'phonenumber_field',
+    
     #my apps
+    'users',
+    'organizations',
+    'headquarters',
+    'timetables',
 
 ]
 
