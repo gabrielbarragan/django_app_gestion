@@ -1,12 +1,15 @@
-import email
+
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.fields.related import ForeignKey
 
+#field types models
 from phonenumber_field.modelfields import PhoneNumberField
 
 #my models
 from organizations.models import Organization
+from headquarters.models import HeadQuarter
+from timetables.models import TimeTable
 
 # Create your models here.
 
@@ -15,6 +18,8 @@ class Account(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     organization = ForeignKey(Organization, related_name='organization',on_delete=models.CASCADE)
+    headquarter = models.ManyToManyField(HeadQuarter, related_name='headquarters')
+    timetables = models.ManyToManyField(TimeTable, related_name= 'timetables')
     address = models.CharField(max_length=255)
     phone = PhoneNumberField(null=False)
     country = models.CharField(max_length=255)

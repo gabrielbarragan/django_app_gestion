@@ -1,15 +1,13 @@
 from django.db import models
-from django.db.models.fields.related import ForeignKey
+
 
 class TimeTable (models.Model):
     '''
     TimeTable model 
     '''
-
-    head_quarter = ForeignKey('headquarters.HeadQuarter', related_name='sede',on_delete=models.CASCADE) 
+    head_quarter = models.ManyToManyField('headquarters.HeadQuarter', related_name='sede') 
     start_time = models.TimeField()
     end_time = models.TimeField()
-    user= ForeignKey('users.Account', related_name='user_time',on_delete=models.CASCADE)
     class Meta:
         ordering = ('start_time',)
     

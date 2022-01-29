@@ -13,19 +13,17 @@ class HeadQuarter (models.Model):
     ACTIVO = 'On'
     INACTIVO = 'Of'
     STATUS_CHOICES = [(ACTIVO, 'Activo'), (INACTIVO, 'Inactivo')]
-
-
     name = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
     email = EmailField(max_length=254)
-    organization = ForeignKey(Organization, related_name='empresa',on_delete=models.CASCADE) 
+    organization = ForeignKey(Organization, related_name='empresa', on_delete=models.CASCADE) 
     geolocalization = models.CharField(max_length=255)
     state = models.CharField(
         max_length=2,
         choices=STATUS_CHOICES,
         default=ACTIVO,
     )
-    time_tables = ForeignKey(TimeTable, related_name='time_tables',on_delete=models.CASCADE) 
+    time_tables = models.ManyToManyField(TimeTable, related_name='horarios')
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
