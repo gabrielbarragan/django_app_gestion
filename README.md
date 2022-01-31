@@ -32,7 +32,7 @@ Este proyecto hace parte de una prueba para un sistema de control de acceso a se
     `pip install -r requirements.txt`
     
 - Copia el contenido del archivo **.envexample.**
-- Dentro de la carpeta **server/control_sedes** crea un archivo llamado **.env**  y allí pega el contenido del archivo **.envexample.** Cambia los valores encerrados en << >>
+- Dentro de la carpeta **server/control_sedes/control_sedes** crea un archivo llamado **.env**  y allí pega el contenido del archivo **.envexample.** Cambia los valores encerrados en << >>
     
     ```
     DEBUG=True
@@ -42,6 +42,10 @@ Este proyecto hace parte de una prueba para un sistema de control de acceso a se
     USER_EMAIL=<<Your_email_for_test>>
     USER_EMAIL_PASSWORD= <<Your email password>>
     ```
+    
+- Ejecuta en consola:
+    `python manage.py makemigrations`
+    `python manage.py migrate`
     
 - En la consola, crea primero un superusuario:
     
