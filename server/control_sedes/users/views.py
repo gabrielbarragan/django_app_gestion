@@ -35,6 +35,7 @@ class CreateListUSer(mixins.ListModelMixin, mixins.CreateModelMixin, generics.Ge
         return self.list(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
+        print(*args)
         return self.create(request, *args, **kwargs)
 class UserAccess(APIView):
     """View for validate access in a headquarter"""
