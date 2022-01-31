@@ -3,4 +3,4 @@ SECRET_KEY=<<Your_Django_secret_key>>
 DATABASE_URL=
 SQLITE_URL=sqlite:///my-local-sqlite.db
 USER_EMAIL=<<Your_email_for_test>>
-USER_EMAIL_PASSWORD= <<Your email password >>
+USER_EMAIL_PASSWORD= <<Your email password>>
