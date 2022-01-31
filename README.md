@@ -27,7 +27,7 @@ Este proyecto hace parte de una prueba para un sistema de control de acceso a se
     
 - Crea el entorno virtual para python y sus librerías.
 - inicia el entorno virtual.
-- Instalar las librerías desde el archivo requirements.txt:
+- Instalar las librerías desde el archivo requirements.txt que se encuentra en la carpeta **server/**:
     
     `pip install -r requirements.txt`
     
