@@ -44,7 +44,7 @@ class UserAccess(APIView):
     def post(self, request):
         # Recuperamos las credenciales y autenticamos al usuario
         email = request.data.get('email', None)
-        password = request.data.get('password', None)
+        password = request.data.get('password', None)   
         user = authenticate(email=email, password=password)
         headquarter_post = request.data.get('headquarter', None)
         headquarter_consult=HeadQuarter.objects.filter(pk=headquarter_post).values()
