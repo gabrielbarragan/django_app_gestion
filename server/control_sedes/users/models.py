@@ -1,7 +1,11 @@
 
+import email
+from enum import unique
 from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.db.models.fields.related import ForeignKey
+
 
 #field types models
 from phonenumber_field.modelfields import PhoneNumberField
@@ -13,13 +17,14 @@ from timetables.models import TimeTable
 
 # Create your models here.
 
-class Account(models.Model):
-    """proxy model that extense the information of user model"""
-
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    organization = ForeignKey(Organization, related_name='organization',on_delete=models.CASCADE)
-    headquarter = models.ManyToManyField(HeadQuarter, related_name='headquarters')
-    timetables = models.ManyToManyField(TimeTable, related_name= 'timetables')
+class Account(AbstractUser):
+    """Model User Account for users of organization"""
+    email = models.EmailField(max_length=254, verbose_name='email address', unique=True)
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
+    organization = ForeignKey(Organization, related_name='account',on_delete=models.CASCADE,blank=True, null=True)
+    headquarter = models.ManyToManyField(HeadQuarter, related_name='account')
+    timetables = models.ManyToManyField(TimeTable, blank=True)
     address = models.CharField(max_length=255)
     phone = PhoneNumberField(null=False)
     country = models.CharField(max_length=255)
@@ -34,5 +39,5 @@ class Account(models.Model):
     def __str__(self):
 
         """Return username"""
-        return self.user.username
+        return self.username
 

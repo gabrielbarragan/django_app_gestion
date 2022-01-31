@@ -54,7 +54,19 @@ INSTALLED_APPS = [
 
 ]
 
-#configure DRF
+AUTH_USER_MODEL = 'users.Account'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'gabrielrondondiplomado@gmail.com'
+EMAIL_HOST_PASSWORD = env('USER_EMAIL_PASSWORD')
+EMAIL_USE_TLS = True
+
+# configure Djoser
+DJOSER = {
+    "USER_ID_FIELD": "username"
+}
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
@@ -63,12 +75,6 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ]
 }
-
-# configure Djoser
-DJOSER = {
-    "USER_ID_FIELD": "username"
-}
-
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:8080',

@@ -10,7 +10,7 @@ class Organization (models.Model):
     '''
     Organization model 
     '''
-    admin_user = ForeignKey('users.Account', related_name='organization_admin',on_delete=models.CASCADE)
+    admin_user = ForeignKey('users.Account', related_name='organization_admin',on_delete=models.CASCADE, null=True, blank=True)
     nit = models.BigIntegerField()
     name = models.CharField(max_length=255)
     comercial_name = models.CharField(max_length=255)

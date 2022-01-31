@@ -1,0 +1,8 @@
+.vscode/
+*.log
+*.pot
+*.pyc
+.envs
+envs/
+.env/
+media/
