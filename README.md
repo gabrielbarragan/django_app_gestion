@@ -29,7 +29,7 @@ Este proyecto hace parte de una prueba para un sistema de control de acceso a se
 - inicia el entorno virtual.
 - Instalar las librerías desde el archivo requirements.txt:
     
-    `pip install requirements.txt`
+    `pip install -r requirements.txt`
     
 - Copia el contenido del archivo **.envexample.**
 - Dentro de la carpeta **server/control_sedes** crea un archivo llamado **.env**  y allí pega el contenido del archivo **.envexample.** Cambia los valores encerrados en << >>
